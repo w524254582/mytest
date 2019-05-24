@@ -45,7 +45,8 @@ public class LoginController {
     }
 
     @RequestMapping(value = "logout", method = RequestMethod.GET)
-    public String logout() {
-        return null;
+    public String logout(HttpServletRequest httpServletRequest) {
+        httpServletRequest.getSession().invalidate();
+        return login();
     }
 }

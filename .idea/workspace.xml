@@ -51,74 +51,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/test/java/com/funtl/my/shop/web/admin/service/test/TbUserServiceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="71" column="34" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1738#1739#0" expanded="true" />
-                <element signature="e#1788#1789#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/service/impl/TbUserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#814#815#0" expanded="true" />
-                <element signature="e#861#862#0" expanded="true" />
-                <element signature="e#903#904#0" expanded="true" />
-                <element signature="e#937#938#0" expanded="true" />
-                <element signature="e#991#992#0" expanded="true" />
-                <element signature="e#1018#1019#0" expanded="true" />
-                <element signature="e#1108#1109#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/service/TbUserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/resources/mapper/TbUserMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="52" column="12" lean-forward="true" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/dao/TbUserDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -154,11 +87,9 @@
         <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/service/UserService.java" />
         <option value="$PROJECT_DIR$/my-shop-commons/src/main/java/com/funtl/my/shop/commons/constant/ConstantUtils.java" />
         <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/controller/MainController.java" />
-        <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/interceptor/LoginIntercepor.java" />
         <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/resources/spring-mvc.xml" />
         <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/interceptor/PermissionInterceptor.java" />
-        <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/resources/myshop.properties" />
         <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/resources/spring-context-druid.xml" />
         <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/webapp/WEB-INF/web.xml" />
@@ -168,11 +99,13 @@
         <option value="$PROJECT_DIR$/my-shop-web-admin/pom.xml" />
         <option value="$PROJECT_DIR$/my-shop-domain/src/main/java/com/funtl/my/shop/domain/TbUser.java" />
         <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/resources/spring-context-mybatis.xml" />
+        <option value="$PROJECT_DIR$/my-shop-web-admin/src/test/java/com/funtl/my/shop/web/admin/service/test/TbUserServiceTest.java" />
+        <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/resources/mapper/TbUserMapper.xml" />
         <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/dao/TbUserDao.java" />
         <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/service/TbUserService.java" />
         <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/service/impl/TbUserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/resources/mapper/TbUserMapper.xml" />
-        <option value="$PROJECT_DIR$/my-shop-web-admin/src/test/java/com/funtl/my/shop/web/admin/service/test/TbUserServiceTest.java" />
+        <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/interceptor/LoginIntercepor.java" />
       </list>
     </option>
   </component>
@@ -206,11 +139,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="464" />
-    <option name="y" value="123" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="546" />
+    <option name="y" value="107" />
     <option name="width" value="1355" />
-    <option name="height" value="819" />
+    <option name="height" value="825" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -335,6 +268,38 @@
               <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -391,7 +356,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="spring" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -506,7 +471,7 @@
       <workItem from="1558609172344" duration="4239000" />
       <workItem from="1558614168981" duration="184000" />
       <workItem from="1558619731262" duration="212000" />
-      <workItem from="1558661870332" duration="8450000" />
+      <workItem from="1558661870332" duration="11571000" />
     </task>
     <task id="LOCAL-00001" summary="pom">
       <created>1558610770918</created>
@@ -526,11 +491,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14972000" />
+    <option name="totallyTimeSpent" value="18093000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="464" y="123" width="1355" height="819" extended-state="0" />
-    <editor active="true" />
+    <frame x="546" y="107" width="1355" height="825" extended-state="1" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26795366" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -718,36 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/interceptor/PermissionInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/interceptor/LoginIntercepor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/resources/myshop.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
@@ -845,10 +779,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/test/java/com/funtl/my/shop/web/admin/service/test/TbUserServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="85" column="51" selection-start-line="85" selection-start-column="51" selection-end-line="85" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1738#1739#0" expanded="true" />
+            <element signature="e#1788#1789#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/resources/mapper/TbUserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/dao/TbUserDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+        <state relative-caret-position="552">
+          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -857,8 +810,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/service/TbUserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+        <state relative-caret-position="513">
+          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -867,36 +820,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/service/impl/TbUserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+        <state relative-caret-position="408">
+          <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#814#815#0" expanded="true" />
-            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#854#855#0" expanded="true" />
             <element signature="e#903#904#0" expanded="true" />
-            <element signature="e#937#938#0" expanded="true" />
+            <element signature="e#939#940#0" expanded="true" />
             <element signature="e#991#992#0" expanded="true" />
-            <element signature="e#1018#1019#0" expanded="true" />
-            <element signature="e#1108#1109#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+            <element signature="e#1090#1091#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+            <element signature="e#1205#1206#0" expanded="true" />
+            <element signature="e#1264#1265#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/resources/mapper/TbUserMapper.xml">
+    <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/interceptor/LoginIntercepor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="52" column="12" lean-forward="true" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
+        <state relative-caret-position="332">
+          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/test/java/com/funtl/my/shop/web/admin/service/test/TbUserServiceTest.java">
+    <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/interceptor/PermissionInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="71" column="34" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
+        <state relative-caret-position="286">
+          <caret line="24" column="59" lean-forward="true" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1738#1739#0" expanded="true" />
-            <element signature="e#1788#1789#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="47" column="36" lean-forward="true" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

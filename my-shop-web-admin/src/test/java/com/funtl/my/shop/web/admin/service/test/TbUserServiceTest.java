@@ -78,4 +78,12 @@ public class TbUserServiceTest {
         tbUser.setUsername("lajilalala");
         tbUserService.update(tbUser);
     }
+
+    @Test
+    public void testSelectByUsername() {
+        List<TbUser> tbUsers = tbUserService.selectByUsername("uni");
+        for (TbUser tbUser : tbUsers) {
+            System.out.println(tbUser.getUsername());
+        }
+    }
 }

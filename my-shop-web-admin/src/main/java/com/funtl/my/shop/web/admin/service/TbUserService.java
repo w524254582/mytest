@@ -22,4 +22,8 @@ public interface TbUserService {
     TbUser getById(Long id);
 
     void update(TbUser tbUser);
+
+    List<TbUser> selectByUsername(String username);
+
+    TbUser login(String emai, String password);
 }

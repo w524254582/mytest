@@ -11,6 +11,7 @@ import com.funtl.my.shop.web.admin.dao.TbUserDao;
 import com.funtl.my.shop.web.admin.service.TbUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 
 import java.util.List;
 
@@ -32,6 +33,19 @@ public class TbUserServiceImpl implements TbUserService {
     }
 
     @Override
+    public TbUser login(String emai, String password) {
+        TbUser tbUser = tbUserDao.getByEmail(emai);
+        if (tbUser != null) {
+            //判断加密后的密码和数据库中存放的密码是否匹配，匹配则表示允许登录
+            String md5Password = DigestUtils.md5DigestAsHex(password.getBytes());
+            if (md5Password.equals(tbUser.getPassword())) {
+                return tbUser;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public void insert(TbUser tbUser) {
         tbUserDao.insert(tbUser);
     }
@@ -49,5 +63,10 @@ public class TbUserServiceImpl implements TbUserService {
     @Override
     public void update(TbUser tbUser) {
         tbUserDao.update(tbUser);
+    }
+
+    @Override
+    public List<TbUser> selectByUsername(String username) {
+        return tbUserDao.selectByUsername(username);
     }
 }

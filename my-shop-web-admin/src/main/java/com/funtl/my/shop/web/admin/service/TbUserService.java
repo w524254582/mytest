@@ -29,4 +29,7 @@ public interface TbUserService {
     TbUser login(String emai, String password);
 
 
+    List<TbUser> search(String keyword);
+
+
 }

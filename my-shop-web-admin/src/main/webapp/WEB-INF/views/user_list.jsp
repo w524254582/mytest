@@ -37,7 +37,7 @@
                     <c:if test="${baseResult!=null}">
                         <div class="alert alert-${baseResult.status == 200?"success":"danger"} alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h4><i class="icon fa fa-info"></i>警告!</h4>
+                            <h7><i class="icon fa fa-info"></i>警告!</h7>
                                 ${baseResult.message}
                         </div>
                     </c:if>
@@ -53,15 +53,17 @@
                             </div>
 
                             <div class="box-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control pull-right"
-                                           placeholder="搜索">
+                                <form action="/user/save" method="post">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <input type="text" name="keyword" class="form-control pull-right"
+                                               placeholder="搜索">
 
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
-                                        </button>
+                                        <div class="input-group-btn">
+                                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <!-- /.box-header -->

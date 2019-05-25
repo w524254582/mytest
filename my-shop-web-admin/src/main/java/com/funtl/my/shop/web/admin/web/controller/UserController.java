@@ -39,6 +39,7 @@ public class UserController {
         }
         return tbUser;
     }
+
     /**
      * 跳转到用户列表页
      *
@@ -52,7 +53,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "form", method = RequestMethod.GET)
-    public String form( Model model) {
+    public String form(Model model) {
         return "user_form";
     }
 
@@ -68,5 +69,20 @@ public class UserController {
             model.addAttribute("baseResult", baseResult);
             return "user_form";
         }
+    }
+
+    /**
+     * 搜索
+     * @param keyword
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "search", method = RequestMethod.POST)
+    public String search(String keyword,Model model) {
+        List<TbUser> tbUsers = tbUserService.search(keyword);
+        model.addAttribute("tbUsers", tbUsers);
+        return "user_list";
+
+
     }
 }

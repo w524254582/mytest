@@ -90,8 +90,18 @@
         <include refid="tbUserColumns"/>
         FROM
         tb_user AS a
-        WHERE
-        a.username LIKE CONCAT("%",#{username},"%")
+        <where>
+            <if test="username!=null and username!=''">
+                OR a.username LIKE CONCAT('%',#{username},'%')
+            </if>
+            <if test="phone!=null and phone!=''">
+                OR a.phone LIKE CONCAT('%',#{phone},'%')
+            </if>
+            <if test="email!=null and email!=''">
+                OR a.email LIKE CONCAT('%',#{email},'%')
+            </if>
+        </where>
+
     </select>
 
 </mapper>

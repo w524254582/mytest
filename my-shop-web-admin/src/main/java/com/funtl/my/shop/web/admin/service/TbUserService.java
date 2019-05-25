@@ -1,5 +1,6 @@
 package com.funtl.my.shop.web.admin.service;
 
+import com.funtl.my.shop.commons.dto.BaseResult;
 import com.funtl.my.shop.domain.TbUser;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public interface TbUserService {
 
     public List<TbUser> selectAll();
 
-    void insert(TbUser tbUser);
+    BaseResult save(TbUser tbUser);
 
     void delete(Long id);
 
@@ -26,4 +27,6 @@ public interface TbUserService {
     List<TbUser> selectByUsername(String username);
 
     TbUser login(String emai, String password);
+
+
 }

@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
     <title>我的商城 | 用户管理</title>
@@ -30,46 +31,54 @@
                 <li class="active">控制面板</li>
             </ol>
         </section>
+
+
         <!-- Main content -->
         <section class="content">
-            <div class="row">
-                <div class="col-md-12">
+            <div class="col-xs-12">
+                <c:if test="${baseResult!=null}">
+                    <div class="alert alert-${baseResult.status == 200?"success":"danger"} alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h4><i class="icon fa fa-info"></i>警告!</h4>
+                            ${baseResult.message}
+                    </div>
+                </c:if>
+                <div class="row">
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Horizontal Form</h3>
+                            <h3 class="box-title">请填写信息</h3>
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form class="form-horizontal">
+                        <form:form id="inputForm" cssClass="form-horizontal" action="/user/save" method="post" commandName="tbUser">
                             <div class="box-body">
-                                <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
-
+                                <div class="form-group ">
+                                    <label for="email" class="col-sm-2 control-label">邮箱</label>
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="请输入用户邮箱地址">
+                                        <form:input  cssClass="form-control required email" path="email" placeholder="请输入用户邮箱地址"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                                    <label for="password" class="col-sm-2 control-label">密码</label>
 
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputPassword3" placeholder="请输入用户密码">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="inputUsername" class="col-sm-2 control-label">姓名</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputUsername" placeholder="请输入用户姓名">
+                                        <form:password path="password" class="form-control required"  placeholder="请输入用户密码"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputPhone" class="col-sm-2 control-label">手机</label>
+                                    <label for="username" class="col-sm-2 control-label">姓名</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputPhone" placeholder="请输入用户手机号">
+                                        <form:input path="username" class="form-control required"  placeholder="请输入用户姓名"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone" class="col-sm-2 control-label">手机</label>
+
+                                    <div class="col-sm-10">
+                                        <form:input path="phone" class="form-control required mobile"  placeholder="请输入用户手机号"/>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +88,8 @@
                                 <button type="submit" class="btn btn-info pull-right">提交</button>
                             </div>
                             <!-- /.box-footer -->
-                        </form>
+                        </form:form>
+
                     </div>
                 </div>
             </div>
@@ -91,6 +101,11 @@
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../includes/footer.jsp"/>
+<script>
+    $(function () {
+        Validate.init();
+    });
+</script>
 </body>
 </html>
 

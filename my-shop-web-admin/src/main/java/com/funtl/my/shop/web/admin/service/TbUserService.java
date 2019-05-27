@@ -29,7 +29,14 @@ public interface TbUserService {
     TbUser login(String emai, String password);
 
 
-    List<TbUser> search(String keyword);
+    List<TbUser> search(TbUser tbUser);
+
+
+    /**
+     * 批量删除
+     * @param ids
+     */
+    void deleteMulti(String[] ids);
 
 
 }

@@ -39,4 +39,6 @@ public interface TbUserDao {
 
     List<TbUser> search(TbUser tbUser);
 
+    void deleteMulti(String[] ids);
+
 }

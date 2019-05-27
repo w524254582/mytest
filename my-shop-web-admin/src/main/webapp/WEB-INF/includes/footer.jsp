@@ -41,3 +41,8 @@
 
 <!-- App-->
 <script src="/static/assets/app/validate.js"></script>
+<script src="/static/assets/app/app.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="/static/assets/plugins/iCheck/icheck.min.js"></script>
+
+

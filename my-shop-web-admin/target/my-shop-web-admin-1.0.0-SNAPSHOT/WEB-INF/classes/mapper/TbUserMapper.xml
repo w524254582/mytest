@@ -87,12 +87,22 @@
 
     <select id="search" resultType="TbUser">
         SELECT
-        <include refid="tbUserColumns"/>
+        <include refid="TbUserColumns"/>
         FROM
         tb_user AS a
-        WHERE 1=1
-        AND
-        a.username LIKE CONCAT("%",#{username},"%")
+        <where>
+            <if test="username!=null and username!=''">
+                AND a.username LIKE CONCAT('%',#{username},'%')
+            </if>
+            <if test="phone!=null and phone!=''">
+                AND a.phone LIKE CONCAT('%',#{phone},'%')
+            </if>
+            <if test="email!=null and email!=''">
+                AND a.email LIKE CONCAT('%',#{email},'%')
+            </if>
+        </where>
     </select>
+    
+    <delete id=""
 
 </mapper>

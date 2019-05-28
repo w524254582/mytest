@@ -52,7 +52,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="299">
@@ -62,6 +62,15 @@
                 <element signature="e#1672#1673#0" expanded="true" />
                 <element signature="e#1706#1707#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/my-shop-dependencies/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="39" column="26" lean-forward="true" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -275,119 +284,7 @@
             <path>
               <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
               <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="my-shop-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="my-shop-dependencies" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -537,7 +434,7 @@
       <workItem from="1558917443965" duration="23267000" />
       <workItem from="1559005245240" duration="10361000" />
       <workItem from="1559021758499" duration="5861000" />
-      <workItem from="1559027901916" duration="3753000" />
+      <workItem from="1559027901916" duration="4488000" />
     </task>
     <task id="LOCAL-00001" summary="pom">
       <created>1558610770918</created>
@@ -599,10 +496,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89231000" />
+    <option name="totallyTimeSpent" value="89966000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="328" y="123" width="1505" height="856" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22975779" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -837,13 +735,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/my-shop-domain/src/main/java/com/funtl/my/shop/domain/User.java" />
-    <entry file="file://$PROJECT_DIR$/my-shop-dependencies/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="41" selection-start-line="41" selection-end-line="57" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-shop-web-admin/src/main/java/com/funtl/my/shop/web/admin/web/interceptor/PermissionInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -1067,6 +958,13 @@
             <element signature="e#1672#1673#0" expanded="true" />
             <element signature="e#1706#1707#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-shop-dependencies/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="39" column="26" lean-forward="true" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
         </state>
       </provider>
     </entry>

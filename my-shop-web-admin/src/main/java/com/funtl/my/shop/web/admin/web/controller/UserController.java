@@ -1,8 +1,11 @@
 package com.funtl.my.shop.web.admin.web.controller;
 
 import com.funtl.my.shop.commons.dto.BaseResult;
+import com.funtl.my.shop.commons.dto.PageInfo;
 import com.funtl.my.shop.domain.TbUser;
 import com.funtl.my.shop.web.admin.service.TbUserService;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import oracle.jrockit.jfr.Recording;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户管理
@@ -48,9 +54,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "list", method = RequestMethod.GET)
-    public String list(Model model) {
-        List<TbUser> tbUsers = tbUserService.selectAll();
-        model.addAttribute("tbUsers", tbUsers);
+    public String list() {
         return "user_list";
     }
 
@@ -73,19 +77,6 @@ public class UserController {
         }
     }
 
-    /**
-     * 搜索
-     * @param tbUser
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "search", method = RequestMethod.POST)
-    public String search(TbUser tbUser,Model model) {
-        List<TbUser> tbUsers = tbUserService.search(tbUser);
-        model.addAttribute("tbUsers", tbUsers);
-        return "user_list";
-    }
-
     @RequestMapping(value = "delete", method = RequestMethod.POST)
     @ResponseBody
     public BaseResult delete(String ids) {
@@ -98,5 +89,32 @@ public class UserController {
             baseResult = BaseResult.fail("删除失败");
         }
         return baseResult;
+    }
+
+    /**
+     * 分页查询
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "page",method = RequestMethod.GET)
+    public PageInfo<TbUser> page(HttpServletRequest request,TbUser tbUser) {
+        Map<String, Object> result = new HashMap<>();
+
+        String strDraw = request.getParameter("draw");
+        String strStart = request.getParameter("start");
+        String strLength = request.getParameter("length");
+
+        int draw = strDraw == null ? 0 : Integer.parseInt(strDraw);
+        int start = strStart == null ? 0 : Integer.parseInt(strStart);
+        int length = strLength == null ? 10 : Integer.parseInt(strLength);
+
+        //封装datatable需要的结果
+        PageInfo<TbUser> pageInfo = tbUserService.page(draw, start, length,tbUser);
+        return pageInfo;
+    }
+    @RequestMapping(value = "detail",method = RequestMethod.GET)
+    public String detail(TbUser tbUser) {
+        return "user_detail";
     }
 }

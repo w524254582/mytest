@@ -7,6 +7,7 @@ package com.funtl.my.shop.web.admin.service.impl;/**
  **/
 
 import com.funtl.my.shop.commons.dto.BaseResult;
+import com.funtl.my.shop.commons.dto.PageInfo;
 import com.funtl.my.shop.commons.utils.RegexpUtils;
 import com.funtl.my.shop.domain.TbUser;
 import com.funtl.my.shop.web.admin.dao.TbUserDao;
@@ -17,7 +18,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName TbUserServiceImpl
@@ -56,10 +59,29 @@ public class TbUserServiceImpl implements TbUserService {
         tbUserDao.deleteMulti(ids);
     }
 
+
     @Override
-    public List<TbUser> search(TbUser tbUser) {
-        return tbUserDao.search(tbUser);
+    public int count(TbUser tbUser) {
+        return tbUserDao.count(tbUser);
     }
+
+
+    @Override
+    public PageInfo<TbUser> page(int draw,int start, int length,TbUser tbUser) {
+        int count = tbUserDao.count(tbUser);
+        Map<String, Object> params = new HashMap<>();
+        params.put("start", start);
+        params.put("length", length);
+        params.put("tbUser", tbUser);
+
+        PageInfo<TbUser> pageInfo = new PageInfo<>();
+        pageInfo.setDraw(draw);
+        pageInfo.setRecordsTotal(count);
+        pageInfo.setRecordsFiltered(count);
+        pageInfo.setData(tbUserDao.page(params));
+        return pageInfo;
+    }
+
 
     /**
      * 用户有效信息验证
@@ -122,8 +144,4 @@ public class TbUserServiceImpl implements TbUserService {
         tbUserDao.update(tbUser);
     }
 
-    @Override
-    public List<TbUser> selectByUsername(String username) {
-        return tbUserDao.selectByUsername(username);
-    }
 }

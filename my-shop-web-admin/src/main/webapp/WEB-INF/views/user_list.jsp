@@ -167,6 +167,10 @@
         var phone = $("#phone").val();
         var email = $("#email").val();
 
+        /**
+         * 获取类名#username 获取到值，并存到parmam中，然后通过 .settings()[0].ajax.data 把该值放到ajax下的data里面，传至后端
+         * @type {{phone: (*|jQuery|string|undefined), email: (*|jQuery|string|undefined), username: (*|jQuery|string|undefined)}}
+         */
         var param = {
             "username" :username,
             "phone":phone,
@@ -174,9 +178,7 @@
         };
         _dataTable.settings()[0].ajax.data = param;
         _dataTable.ajax.reload();
-    }
-
-
+    };
 </script>
 </body>
 </html>

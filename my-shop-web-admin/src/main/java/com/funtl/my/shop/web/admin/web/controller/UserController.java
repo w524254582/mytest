@@ -99,8 +99,6 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "page",method = RequestMethod.GET)
     public PageInfo<TbUser> page(HttpServletRequest request,TbUser tbUser) {
-        Map<String, Object> result = new HashMap<>();
-
         String strDraw = request.getParameter("draw");
         String strStart = request.getParameter("start");
         String strLength = request.getParameter("length");

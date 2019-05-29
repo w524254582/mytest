@@ -115,9 +115,6 @@ var App = function () {
             "deferRender": true,
             "ajax": {
                 "url": url,
-                "data":{
-                    "username":""
-                }
             },
             "columns": columns,
             "language": {

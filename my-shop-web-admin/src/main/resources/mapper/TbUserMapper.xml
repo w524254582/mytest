@@ -92,12 +92,18 @@
             <if test="tbUser.username!=null and tbUser.username!=''">
                 AND a.username LIKE CONCAT('%',#{tbUser.username},'%')
             </if>
+            <if test="tbUser.email!=null and tbUser.email!=''">
+                AND a.email LIKE CONCAT('%',#{email},'%')
+            </if>
+            <if test="tbUser.phone!=null and tbUser.phone!=''">
+                AND a.phone LIKE CONCAT('%',#{phone},'%')
+            </if>
         </where>
         LIMIT #{start},#{length}
     </select>
 
     <select id="count" resultType="java.lang.Integer">
-        SELECT COUNT(*) FROM tb_user a
+        SELECT COUNT(*) FROM tb_user AS a
         <where>
             <if test="username!=null and username!=''">
                 AND a.username LIKE CONCAT('%',#{username},'%')

@@ -120,11 +120,13 @@ public class TbUserServiceImpl implements TbUserService {
                 tbUser.setPassword(DigestUtils.md5DigestAsHex(tbUser.getPassword().getBytes()));
                 tbUser.setCreated(new Date());
                 tbUserDao.insert(tbUser);
+                baseResult.setMessage("新增用户信息成功");
             } else {
                 //编辑
                 tbUserDao.update(tbUser);
+                baseResult.setMessage("编辑用户信息成功");
             }
-            baseResult.setMessage("新增用户信息成功");
+
         }
         return baseResult;
     }

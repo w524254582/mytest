@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
+  User: kdnight
   Date: 2019/5/25
   Time: 10:55
   To change this template use File | Settings | File Templates.
@@ -29,7 +29,7 @@
             <li class="header">功能菜单</li>
             <li class="active treeview">
                 <a href="#">
-                    <i class="fa fa-users"></i> <span>控制面板</span>
+                    <i class="fa fa-users"></i> <span>用户管理</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -37,9 +37,21 @@
                 <ul class="treeview-menu">
                     <li><a href="/user/list"><i class="fa fa-circle-o"></i> 用户列表</a></li>
                     <li><a href="/user/form"><i class="fa fa-circle-o"></i> 新增用户</a></li>
-                    <li><a href="/user/list"><i class="fa fa-circle-o"></i> 用户列表</a></li>
                 </ul>
             </li>
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa fa-book"></i> <span>内容管理</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/content/category/list"><i class="fa fa-circle-o"></i> 内容分类</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 内容列表</a></li>
+                </ul>
+            </li>
+
         </ul>
     </section>
 </aside>

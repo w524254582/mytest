@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * @ClassName BaseEntity
  * @Description TODO
- * @Author Administrator
+ * @Author kdnight
  * @Date 2019/5/28 10:38
  * @Version 1.0
  **/

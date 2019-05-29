@@ -6,7 +6,7 @@ import java.io.Serializable;
  * 自定义返回结果
  * @ClassName BaseResult
  * @Description TODO
- * @Author Administrator
+ * @Author kdnight
  * @Date 2019/5/25 13:44
  * @Version 1.0
  **/

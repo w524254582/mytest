@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
+  User: kdnight
   Date: 2019/5/25
   Time: 11:42
   To change this template use File | Settings | File Templates.
@@ -39,7 +39,7 @@
                 <c:if test="${baseResult!=null}">
                     <div class="alert alert-${baseResult.status == 200?"success":"danger"} alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h4><i class="icon fa fa-info"></i>警告!</h4>
+                        <h4><i class="icon fa fa-info"></i>提示</h4>
                             ${baseResult.message}
                     </div>
                 </c:if>

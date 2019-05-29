@@ -1,10 +1,4 @@
-package com.funtl.my.shop.web.admin.service.impl;/**
- * TbUserServiceImpl
- *
- * @author Administrator
- * @version 1.0
- * 2019/5/24 11:01
- **/
+package com.funtl.my.shop.web.admin.service.impl;
 
 import com.funtl.my.shop.commons.dto.BaseResult;
 import com.funtl.my.shop.commons.dto.PageInfo;
@@ -25,7 +19,7 @@ import java.util.Map;
 /**
  * @ClassName TbUserServiceImpl
  * @Description TODO
- * @Author Administrator
+ * @Author kdnight
  * @Date 2019/5/24 11:01
  * @Version 1.0
  **/

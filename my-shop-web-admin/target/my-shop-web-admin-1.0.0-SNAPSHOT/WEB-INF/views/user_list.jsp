@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
+  User: kdnight
   Date: 2019/5/25
   Time: 10:30
   To change this template use File | Settings | File Templates.
@@ -38,7 +38,7 @@
                     <c:if test="${baseResult!=null}">
                         <div class="alert alert-${baseResult.status == 200?"success":"danger"} alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h7><i class="icon fa fa-info"></i>警告!</h7>
+                            <h7><i class="icon fa fa-info"></i>提示</h7>
                                 ${baseResult.message}
                         </div>
                     </c:if>
@@ -167,6 +167,10 @@
         var phone = $("#phone").val();
         var email = $("#email").val();
 
+        /**
+         * 获取类名#username 获取到值，并存到parmam中，然后通过 .settings()[0].ajax.data 把该值放到ajax下的data里面，传至后端
+         * @type {{phone: (*|jQuery|string|undefined), email: (*|jQuery|string|undefined), username: (*|jQuery|string|undefined)}}
+         */
         var param = {
             "username" :username,
             "phone":phone,
@@ -174,9 +178,7 @@
         };
         _dataTable.settings()[0].ajax.data = param;
         _dataTable.ajax.reload();
-    }
-
-
+    };
 </script>
 </body>
 </html>

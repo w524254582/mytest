@@ -7,7 +7,7 @@ package com.funtl.my.shop.commons.utils;
  *
  */
 public class RegexpUtils {
-    /**
+    /**s
      * 验证手机号
      */
     public static final String PHONE = "^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$";

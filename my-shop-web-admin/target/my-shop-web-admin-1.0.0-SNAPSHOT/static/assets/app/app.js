@@ -45,17 +45,16 @@ var App = function () {
             if (_id != null && $(this).attr("id") != "undefine" && $(this).is(":checked")) {
                 _idArray.push(_id);
             }
-            console.log(_idArray.length);
         });
-        console.log("输出完毕");
+        //判断用户是否选择了数据项
         if (_idArray.length === 0) {
             $("#modal-message").html("您还没有选择任何数据项，请至少选择一项");
         } else {
             $("#modal-message").html("您确定要删除数据项吗？");
         }
+        //点击删除按钮时弹出模态框
         $("#modal-default").modal("show");
-
-
+        //如果用户选择了数据项则调用删除方法
         $("#btnModalOk").bind("click", function () {
             del();
         });
@@ -76,19 +75,24 @@ var App = function () {
                         "type": "POST",
                         "data": {"ids": _idArray.toString()},
                         "dataType": "JSON",
+                        //请求成功后，无论成功还是失败都需要弹出模态框进行提示，所以需要先解绑原来的click事件
                         "success": function (data) {
+                            $("#btnModalOk").unbind("click");
                             //删除成功
                             if (data.status === 200) {
-                                window.location.reload();
+                                //刷新页面
+                                $("#btnModalOk").bind("click", function () {
+                                    window.location.reload();
+                                });
                             } else {
-                                $("#btnModalOk").unbind("click");
+                                //确定按钮的事件改为隐藏模态框
                                 $("#btnModalOk").bind("click", function () {
                                     $("modal-default").modal("hide");
                                 });
-
-                                $("#modal-message").html(data.message);
-                                $("modal-default").modal("show");
                             }
+                            //无论如何都要提示信息，所以模态框是必须调用的
+                            $("#modal-message").html(data.message);
+                            $("modal-default").modal("show");
                         }
                     });
                 }, 500);
@@ -111,9 +115,6 @@ var App = function () {
             "deferRender": true,
             "ajax": {
                 "url": url,
-                "data":{
-                    "username":""
-                }
             },
             "columns": columns,
             "language": {
@@ -149,6 +150,7 @@ var App = function () {
     };
 
     var handlerShowDetail = function (url) {
+        //ajax请求html的方式将 jsp 装载到模态框中
         $.ajax({
             url:url,
             type:"get",
@@ -162,20 +164,21 @@ var App = function () {
 
     //暴露这个方法
     return {
+        //初始化
         init: function () {
             handlerInitCheckbox();
             handlerCheckboxAll();
         },
-        getCheckbox: function () {
-            return _checkbox;
-        },
+        //批量删除
         deleteMulti: function (url) {
             handlerDeleteMulti(url);
         },
+        //初始化datatable
         initDataTables: function (url, columns) {
             return handlerInitDataTable(url,columns);
 
         },
+        //显示详情
         showDetail: function (url) {
             handlerShowDetail(url);
         }

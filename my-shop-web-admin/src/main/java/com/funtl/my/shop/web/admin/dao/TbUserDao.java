@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * TbUserDao
  *
- * @author Administrator
+ * @author kdnight
  * @version 1.0
  * 2019/5/24 10:59
  **/

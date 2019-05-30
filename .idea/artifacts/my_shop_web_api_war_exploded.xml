@@ -17,6 +17,7 @@
           <element id="archive" name="my-shop-commons-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="my-shop-commons" />
           </element>
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.6" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.5" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.5" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.5" />

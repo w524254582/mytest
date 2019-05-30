@@ -1,6 +1,8 @@
 package com.funtl.my.shop.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.funtl.my.shop.commons.persistence.BaseEntity;
+import lombok.Data;
 
 /**
  * 分类管理
@@ -10,51 +12,12 @@ import com.funtl.my.shop.commons.persistence.BaseEntity;
  * @Date 2019/5/29 11:21
  * @Version 1.0
  **/
-
+@Data
 public class TbContentCategory extends BaseEntity {
     private Long parentId;
     private String name;
     private Integer statuc;
     private Integer sortOrder;
+    @JsonProperty(value = "isParent")
     private Boolean isParent;
-
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getStatuc() {
-        return statuc;
-    }
-
-    public void setStatuc(Integer statuc) {
-        this.statuc = statuc;
-    }
-
-    public Integer getSortOrder() {
-        return sortOrder;
-    }
-
-    public void setSortOrder(Integer sortOrder) {
-        this.sortOrder = sortOrder;
-    }
-
-    public Boolean getParent() {
-        return isParent;
-    }
-
-    public void setParent(Boolean parent) {
-        isParent = parent;
-    }
 }

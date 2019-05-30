@@ -88,7 +88,7 @@
                         <div class="box-body">
                             <a href="/user/form" type="button" class="btn btn-sm btn-default"><i
                                     class="fa fa-plus">新增</i></a>&nbsp;&nbsp;
-                            <button href="#" type="button" class="btn btn-sm btn-default"
+                            <button class="btn btn-sm btn-default"
                                     onclick="App.deleteMulti('/user/delete')"><i
                                     class="fa fa-trash-o">批量删除</i></button>&nbsp;&nbsp;
                             <a href="#" type="button" class="btn btn-sm btn-default"><i
@@ -105,8 +105,8 @@
                                 <tr>
                                     <th><input type="checkbox" class="minimal icheck_master"/></th>
                                     <th>ID</th>
-                                    <th>用户名</th>
-                                    <th>手机</th>
+                                    <th>姓名</th>
+                                    <th>手机号</th>
                                     <th>邮箱</th>
                                     <th>更新时间</th>
                                     <th>操作</th>
@@ -152,7 +152,7 @@
             {
                 "data": function (row, type, val, meta) {
                     var detailUrl = "/user/detail?id=" + row.id;
-                    return '<a href="#" type="button" class="btn btn-sm btn-default" onclick="App.showDetail(\''+detailUrl+'\');"><i class="fa fa-search">查看</i></a>'+
+                    return '<button type="button" class="btn btn-sm btn-default" onclick="App.showDetail(\''+detailUrl+'\');"><i class="fa fa-search">查看</i></button>'+
                         '<a href="/user/form?id='+row.id+'"type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit">编辑</i></a>'+
                         '<a href="#" type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash">删除</i></a>';
                 }

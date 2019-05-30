@@ -93,10 +93,10 @@
                 AND a.username LIKE CONCAT('%',#{tbUser.username},'%')
             </if>
             <if test="tbUser.email!=null and tbUser.email!=''">
-                AND a.email LIKE CONCAT('%',#{email},'%')
+                AND a.email LIKE CONCAT('%',#{tbUser.email},'%')
             </if>
             <if test="tbUser.phone!=null and tbUser.phone!=''">
-                AND a.phone LIKE CONCAT('%',#{phone},'%')
+                AND a.phone LIKE CONCAT('%',#{tbUser.phone},'%')
             </if>
         </where>
         LIMIT #{start},#{length}

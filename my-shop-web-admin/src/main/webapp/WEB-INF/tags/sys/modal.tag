@@ -15,7 +15,7 @@
                 <h4 class="modal-title">${title == null ? "提示" : title}</h4>
             </div>
             <div class="modal-body">
-                <p id="modal-message">${msg}&hellip;</p>
+                <p id="modal-message">${msg}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>

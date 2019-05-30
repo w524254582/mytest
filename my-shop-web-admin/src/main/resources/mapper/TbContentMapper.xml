@@ -69,64 +69,61 @@
 
     <update id="update">
         UPDATE
-            tb_user
+            tb_content
         SET
-            username=#{username},
-            password=#{password},
-            phone=#{phone},
-            email=#{email},
-            updated=#{updated}
+            category_id = #{categoryId},
+            title = #{title},
+            sub_title = #{subTitle},
+            title_desc = #{titleDesc},
+            url = #{url},
+            pic = #{pic},
+            pic2 = #{pic2},
+            content = #{content},
+            created = #{created},
+            updated = #{updated}
         WHERE
             id=#{id}
     </update>
 
-    <select id="getByEmail" resultType="TbUser">
-        SELECT
-        <include refid="TbUserColumns"/>
-        FROM
-        tb_user AS a
-        WHERE
-        a.email = #{email}
-    </select>
 
     <delete id="deleteMulti">
-        DELETE FROM tb_user
+        DELETE FROM tb_content
         WHERE id IN
         <foreach collection="array" open="(" close=")" separator="," item="id">
             #{id}
         </foreach>
     </delete>
 
-    <select id="page" resultType="TbUser" parameterType="java.util.Map">
+    <select id="page" resultType="TbContent" parameterType="java.util.Map">
         SELECT
-        <include refid="TbUserColumns"/>
+        <include refid="tbContentColumns"/>
         FROM
-        tb_user AS a
+        tb_content AS a
         <where>
-            <if test="tbUser.username!=null and tbUser.username!=''">
-                AND a.username LIKE CONCAT('%',#{tbUser.username},'%')
+            <if test="TbContent.title!=null and TbContent.title!=''">
+                AND a.title LIKE CONCAT('%',#{TbContent.title},'%')
             </if>
-            <if test="tbUser.email!=null and tbUser.email!=''">
-                AND a.email LIKE CONCAT('%',#{email},'%')
+            <if test="TbContent.subTitle!=null and TbContent.subTitle!=''">
+                AND a.sub_title LIKE CONCAT('%',#{TbContent.subTitle},'%')
             </if>
-            <if test="tbUser.phone!=null and tbUser.phone!=''">
-                AND a.phone LIKE CONCAT('%',#{phone},'%')
+            <if test="TbContent.titleDesc!=null and TbContent.titleDesc!=''">
+                AND a.title_desc LIKE CONCAT('%',#{TbContent.titleDesc},'%')
             </if>
         </where>
         LIMIT #{start},#{length}
     </select>
 
     <select id="count" resultType="java.lang.Integer">
-        SELECT COUNT(*) FROM tb_user AS a
+        SELECT COUNT(*) FROM tb_content AS a
         <where>
-            <if test="username!=null and username!=''">
-                AND a.username LIKE CONCAT('%',#{username},'%')
+            <if test="title!=null and title!=''">
+                AND a.title LIKE CONCAT('%',#{title},'%')
             </if>
-            <if test="email!=null and email!=''">
-                AND a.email LIKE CONCAT('%',#{email},'%')
+            <if test="subTitle!=null and subTitle!=''">
+                AND a.sub_title LIKE CONCAT('%',#{subTitle},'%')
             </if>
-            <if test="phone!=null and phone!=''">
-                AND a.phone LIKE CONCAT('%',#{phone},'%')
+            <if test="titleDesc!=null and titleDesc!=''">
+                AND a.title_desc LIKE CONCAT('%',#{titleDesc},'%')
             </if>
         </where>
     </select>

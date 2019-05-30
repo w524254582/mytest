@@ -18,6 +18,11 @@
     <description></description>
 
     <dependencies>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
         <!-- Json Begin -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

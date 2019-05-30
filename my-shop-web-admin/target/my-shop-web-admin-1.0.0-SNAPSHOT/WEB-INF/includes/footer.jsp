@@ -49,6 +49,12 @@
 <script src="/static/assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="/static/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+<!--datetime format-->
+<script src="/static/assets/app/datetime.js"></script>
+
+
+
+
 
 <div class="modal fade" id="modal-detail">
     <div class="modal-dialog">

@@ -103,7 +103,7 @@ var App = function () {
     /**
      * 初始化 DataTables
      */
-    var handlerInitDataTable = function (url,columns) {
+    var handlerInitDataTable = function (url, columns) {
         var _dataTable = $("#dataTable").DataTable({
             "paging": true,
             "info": true,
@@ -152,12 +152,44 @@ var App = function () {
     var handlerShowDetail = function (url) {
         //ajax请求html的方式将 jsp 装载到模态框中
         $.ajax({
-            url:url,
-            type:"get",
-            dataType:"html",
+            url: url,
+            type: "get",
+            dataType: "html",
             success: function (data) {
                 $("#modal-detail-body").html(data);
                 $("#modal-detail").modal("show");
+            }
+        });
+    };
+
+    /**
+     * 初始化zTree
+     * @param url
+     * @param autoParam
+     * @param callback
+     * @returns {{init: init, initZTree: initZTree, deleteMulti: deleteMulti, initDataTables: (function(*=, *=): jQuery), showDetail: showDetail}}
+     */
+    var handlerInitZTree = function (url, autoParam, callback) {
+        var setting = {
+            view: {
+                selectedMulti: false
+            },
+            async: {
+                enable: true,
+                url: url,
+                autoParam: autoParam,
+            }
+        };
+        $.fn.zTree.init($("#myTree"), setting);
+
+        $("#btnModalOk").bind("click", function () {
+            var zTree = $.fn.zTree.getZTreeObj("myTree");
+            var nodes = zTree.getSelectedNodes();
+            //未选择
+            if (nodes.length == 0) {
+                alert("请选择一个节点");
+            } else {
+                callback(nodes);
             }
         });
     };
@@ -175,13 +207,17 @@ var App = function () {
         },
         //初始化datatable
         initDataTables: function (url, columns) {
-            return handlerInitDataTable(url,columns);
+            return handlerInitDataTable(url, columns);
 
         },
         //显示详情
         showDetail: function (url) {
             handlerShowDetail(url);
-        }
+        },
+        initZTree: function (url, autoParam, callback) {
+            handlerInitZTree(url, autoParam, callback);
+        },
+
     };
 }();
 

@@ -3,6 +3,7 @@ package com.funtl.my.shop.web.admin.service.impl;
 import com.funtl.my.shop.commons.dto.BaseResult;
 import com.funtl.my.shop.commons.dto.PageInfo;
 import com.funtl.my.shop.commons.utils.RegexpUtils;
+import com.funtl.my.shop.commons.validator.BeanValidator;
 import com.funtl.my.shop.domain.TbUser;
 import com.funtl.my.shop.web.admin.dao.TbUserDao;
 import com.funtl.my.shop.web.admin.service.TbUserService;
@@ -61,7 +62,7 @@ public class TbUserServiceImpl implements TbUserService {
 
 
     @Override
-    public PageInfo<TbUser> page(int draw,int start, int length,TbUser tbUser) {
+    public PageInfo<TbUser> page(int draw, int start, int length, TbUser tbUser) {
         int count = tbUserDao.count(tbUser);
         Map<String, Object> params = new HashMap<>();
         params.put("start", start);
@@ -76,37 +77,15 @@ public class TbUserServiceImpl implements TbUserService {
         return pageInfo;
     }
 
-
-    /**
-     * 用户有效信息验证
-     *
-     * @param tbUser
-     * @return
-     */
-    private BaseResult checkTbUser(TbUser tbUser) {
-        BaseResult baseResult = BaseResult.success();
-
-        //非空验证
-        if (StringUtils.isBlank(tbUser.getEmail())) {
-            baseResult = BaseResult.fail("邮箱不能为空，请重新输入");
-        } else if (!RegexpUtils.checkEmail(tbUser.getEmail())) {
-            baseResult = BaseResult.fail("邮箱格式不正确，请重新输入");
-        } else if (StringUtils.isBlank(tbUser.getPassword())) {
-            baseResult = BaseResult.fail("密码不能为空，请重新输入");
-        } else if (StringUtils.isBlank(tbUser.getUsername())) {
-            baseResult = BaseResult.fail("姓名不能为空，请重新输入");
-        } else if (StringUtils.isBlank(tbUser.getPhone())) {
-            baseResult = BaseResult.fail("手机号不能为空，请重新输入");
-        } else if (!RegexpUtils.checkEmail(tbUser.getEmail())) {
-            baseResult = BaseResult.fail("手机号格式不正确，请重新输入");
-        }
-        return baseResult;
-    }
-
     @Override
     public BaseResult save(TbUser tbUser) {
-        BaseResult baseResult = checkTbUser(tbUser);
-        if (baseResult.getStatus() == BaseResult.STATUS_SUCCESS) {
+        String validator = BeanValidator.validator(tbUser);
+        //验证不通过
+        if (validator != null) {
+            return BaseResult.fail(validator);
+        } else {
+            //通过验证
+
             tbUser.setUpdated(new Date());
             //新增
             if (tbUser.getId() == null) {
@@ -114,15 +93,12 @@ public class TbUserServiceImpl implements TbUserService {
                 tbUser.setPassword(DigestUtils.md5DigestAsHex(tbUser.getPassword().getBytes()));
                 tbUser.setCreated(new Date());
                 tbUserDao.insert(tbUser);
-                baseResult.setMessage("新增用户信息成功");
             } else {
                 //编辑
                 tbUserDao.update(tbUser);
-                baseResult.setMessage("编辑用户信息成功");
             }
-
+            return BaseResult.success("保存用户信息成功");
         }
-        return baseResult;
     }
 
     @Override

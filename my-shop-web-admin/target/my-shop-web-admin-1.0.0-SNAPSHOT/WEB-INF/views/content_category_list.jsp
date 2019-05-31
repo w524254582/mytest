@@ -52,7 +52,7 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <a href="#" type="button" class="btn btn-sm btn-default"><i class="fa fa-plus">新增</i></a>&nbsp;&nbsp;
+                            <a href="/content/category/form" type="button" class="btn btn-sm btn-default"><i class="fa fa-plus">新增</i></a>&nbsp;&nbsp;
                             <button href="#" type="button" class="btn btn-sm btn-default"><i class="fa fa-trash-o">批量删除</i></button>&nbsp;&nbsp;
                             <a href="#" type="button" class="btn btn-sm btn-default"><i class="fa fa-sign-in">导入</i></a>&nbsp;&nbsp;
                             <a href="#" type="button" class="btn btn-sm btn-default"><i class="fa fa-sign-out">导出</i></a>&nbsp;&nbsp;

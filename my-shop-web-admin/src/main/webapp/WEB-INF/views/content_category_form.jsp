@@ -57,27 +57,27 @@
                             <form:hidden path="id"/>
                             <div class="box-body">
                                 <div class="form-group ">
-                                    <label for="categoryId" class="col-sm-2 control-label">父级类目</label>
+                                    <label for="parentId" class="col-sm-2 control-label">父级类目</label>
                                     <div class="col-sm-10">
-                                        <form:hidden path="categoryId"/>
-                                        <input id="categoryName" class="form-control required" placeholder="请选择"
+                                        <form:hidden path="parentId"/>
+                                        <input id="parentName" class="form-control required" placeholder="请选择"
                                                readonly="true" data-toggle="modal" data-target="#modal-default"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="title" class="col-sm-2 control-label">分类名称</label>
+                                    <label for="name" class="col-sm-2 control-label">分类名称</label>
 
                                     <div class="col-sm-10">
-                                        <form:input path="title" class="form-control required"
+                                        <form:input path="name" class="form-control required"
                                                     placeholder="分类名称"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="titleDesc" class="col-sm-2 control-label">分类排序</label>
+                                    <label for="sortOrder" class="col-sm-2 control-label">分类排序</label>
 
                                     <div class="col-sm-10">
-                                        <form:input path="titleDesc" class="form-control required"
+                                        <form:input path="sortOrder" class="form-control required"
                                                     placeholder="分类排序"/>
                                     </div>
                                 </div>
@@ -109,10 +109,10 @@
     $(function () {
         App.initZTree("/content/category/tree/data",["id"],function (nodes) {
             var node = nodes[0];
-            $("#categoryId").val(node.id);
-            $("#categoryName").val(node.name);
-            $("#modal-default").modal("hide");
 
+            $("#parentId").val(node.id);
+            $("#parentName").val(node.name);
+            $("#modal-default").modal("hide");
         })
     });
 </script>

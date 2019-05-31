@@ -52,6 +52,11 @@ public class ContentCategoryController {
         return "content_category_list";
     }
 
+    @RequestMapping(value = "form", method = RequestMethod.GET)
+    public String form(Model model) {
+        return "content_category_form";
+    }
+
     /**
      * 排序
      *
@@ -83,7 +88,7 @@ public class ContentCategoryController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "tree/data", method = RequestMethod.POST)
+    @RequestMapping(value = "tree/data", method = {RequestMethod.GET,RequestMethod.POST})
     public List<TbContentCategory> treeData(Long id) {
         if (id == null) {
             id = 0L;

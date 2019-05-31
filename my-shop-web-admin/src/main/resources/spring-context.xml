@@ -11,6 +11,13 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <!-- 配置 Bean Validator 定义 -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+    <bean id="beanValidator" class="com.funtl.my.shop.commons.validator.BeanValidator">
+        <property name="validator" ref="validator" />
+        <!--spring 只能注入对象，而不能注入属性，静态的对象放在bean里变成了属性，只能手工注入属性property-->
+    </bean>
+
 
 
 

@@ -35,5 +35,15 @@
     </select>
 
 
+    <select id="getById" resultType="TbContentCategory">
+        SELECT
+        <include refid="tbContentCategoryColumns"/>
+        FROM
+        tb_content_category AS a
+        WHERE
+        a.id=#{id}
+    </select>
+
+
 
 </mapper>

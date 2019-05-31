@@ -41,11 +41,7 @@ public class ContentController {
         return tbContent;
     }
 
-    /**
-     * 跳转到用户列表页
-     *
-     * @return
-     */
+
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String list() {
         return "content_list";

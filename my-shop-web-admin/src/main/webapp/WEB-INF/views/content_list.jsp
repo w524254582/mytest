@@ -23,7 +23,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>用户管理
+            <h1>内容管理
                 <small></small>
             </h1>
             <ol class="breadcrumb">
@@ -80,7 +80,7 @@
                     <!-- /.box -->
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">用户列表</h3>
+                            <h3 class="box-title">内容列表</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">

@@ -1,8 +1,10 @@
 package com.funtl.my.shop.web.admin.service.impl;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import com.funtl.my.shop.commons.dto.BaseResult;
 import com.funtl.my.shop.commons.dto.PageInfo;
 import com.funtl.my.shop.commons.utils.RegexpUtils;
+import com.funtl.my.shop.commons.validator.BeanValidator;
 import com.funtl.my.shop.domain.TbContent;
 import com.funtl.my.shop.domain.TbUser;
 import com.funtl.my.shop.web.admin.dao.TbContentDao;
@@ -37,23 +39,22 @@ public class TbContentServiceImpl implements TbContentService {
 
     @Override
     public BaseResult save(TbContent tbContent) {
-        BaseResult baseResult = checkTbContent(tbContent);
-        if (baseResult.getStatus() == BaseResult.STATUS_SUCCESS) {
+        String validator = BeanValidator.validator(tbContent);
+        //验证不通过
+        if (validator != null) {
+            return BaseResult.fail(validator);
+        } else {
             tbContent.setUpdated(new Date());
             //新增
             if (tbContent.getId() == null) {
                 tbContent.setCreated(new Date());
                 tbContentDao.insert(tbContent);
-                baseResult.setMessage("新增内容信息成功");
             } else {
                 //编辑
                 tbContentDao.update(tbContent);
-                baseResult.setMessage("编辑内容信息成功");
             }
-
+            return BaseResult.success("保存信息成功");
         }
-        return baseResult;
-
     }
 
     @Override
@@ -98,25 +99,4 @@ public class TbContentServiceImpl implements TbContentService {
         return 0;
     }
 
-    /**
-     * 有效信息验证
-     *
-     * @param tbContent
-     * @return
-     */
-    private BaseResult checkTbContent(TbContent tbContent) {
-        BaseResult baseResult = BaseResult.success();
-
-        //非空验证
-        if (tbContent.getCategoryId() == null) {
-            baseResult = BaseResult.fail("内容所属分类不能为空，请重新输入");
-        } else if (StringUtils.isBlank(tbContent.getTitle())) {
-            baseResult = BaseResult.fail("标题不能为空，请重新输入");
-        } else if (StringUtils.isBlank(tbContent.getSubTitle())) {
-            baseResult = BaseResult.fail("sub标题不能为空，请重新输入");
-        } else if (StringUtils.isBlank(tbContent.getTitleDesc())) {
-            baseResult = BaseResult.fail("标题级别不能为空，请重新输入");
-        }
-        return baseResult;
-    }
 }

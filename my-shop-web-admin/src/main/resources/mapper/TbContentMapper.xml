@@ -48,10 +48,8 @@
              #{pic2},
              #{content},
              #{created},
-             #{updated},
-          ) ;
-
-
+             #{updated}
+          )
     </insert>
 
     <delete id="delete">

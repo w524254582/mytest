@@ -92,7 +92,7 @@ var App = function () {
                             }
                             //无论如何都要提示信息，所以模态框是必须调用的
                             $("#modal-message").html(data.message);
-                            $("modal-default").modal("show");
+                            $("#modal-default").modal("show");
                         }
                     });
                 }, 500);

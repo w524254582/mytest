@@ -169,6 +169,7 @@
         init: function () {
             this.on("success", function (file, data) {
                 // 上传成功触发的事件
+                $("#pic").val(data.fileName);
             });
         }
     });

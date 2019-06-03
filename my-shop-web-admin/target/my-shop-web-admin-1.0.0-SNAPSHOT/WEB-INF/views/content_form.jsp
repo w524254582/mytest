@@ -19,6 +19,7 @@
     <%--DropZone--%>
     <link rel="stylesheet" href="/static/assets/plugins/dropzone/min/dropzone.min.css"/>
     <link rel="stylesheet" href="/static/assets/plugins/dropzone/min/basic.min.css"/>
+    <link rel="stylesheet" href="/static/assets/plugins/wangEditor/wangEditor-3.0.16/release/wangEditor.min.css"/>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -61,11 +62,11 @@
                             <form:hidden path="id"/>
                             <div class="box-body">
                                 <div class="form-group ">
-                                    <label for="categoryId" class="col-sm-2 control-label">父级类目</label>
+                                    <label for="tbContentCategory.id" class="col-sm-2 control-label">父级类目</label>
                                     <div class="col-sm-10">
-                                        <form:hidden path="categoryId"/>
+                                        <form:hidden id="categoryId" path="tbContentCategory.id"/>
                                         <input id="categoryName" class="form-control required" placeholder="请选择"
-                                               readonly="true" data-toggle="modal" data-target="#modal-default"/>
+                                               readonly="true" data-toggle="modal" data-target="#modal-default" value="${tbContent.tbContentCategory.name}"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -106,30 +107,32 @@
                                     <div class="col-sm-10">
                                         <form:input path="pic" class="form-control required "
                                                     placeholder="图片1"/>
+                                        <div id="dropz" class="dropzone"></div>
                                     </div>
-                                    <div id="dropz" class="dropzone"></div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="pic2" class="col-sm-2 control-label">图片2</label>
-
                                     <div class="col-sm-10">
                                         <form:input path="pic2" class="form-control required"
                                                     placeholder="图片2"/>
+                                        <div id="dropz2" class="dropzone"></div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="content" class="col-sm-2 control-label">详情</label>
 
+                                <div class="form-group">
+                                    <form:hidden path="content" />
+                                    <label  class="col-sm-2 control-label">详情</label>
                                     <div class="col-sm-10">
-                                        <form:textarea path="content" rows="5" class="form-control required"
-                                                       placeholder="详情"/>
+                                        <div id="editor">${tbContent.content}</div>
                                     </div>
                                 </div>
+
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
                                 <button type="button" class="btn btn-default" onclick="history.go(-1);">返回</button>
-                                <button type="submit" class="btn btn-info pull-right">提交</button>
+                                <button id="btnSubmit" type="submit" class="btn btn-info pull-right" >提交</button>
                             </div>
                             <!-- /.box-footer -->
                         </form:form>
@@ -149,10 +152,13 @@
 <script src="/static/assets/plugins/jquery-ztree/js/jquery.ztree.core-3.5.min.js"></script>
 <%--DropZone--%>
 <script src="/static/assets/plugins/dropzone/min/dropzone.min.js"></script>
+<%--WangEditor--%>
+<script src="/static/assets/plugins/wangEditor/wangEditor-3.0.16/release/wangEditor.min.js"></script>
 
 <%--自定义模态框--%>
 <sys:modal title="请选择" msg="<ul id='myTree' class='ztree'></ul>"/>
 <script>
+    //jQuery的初始化方法
     $(function () {
         App.initZTree("/content/category/tree/data", ["id"], function (nodes) {
             var node = nodes[0];
@@ -160,19 +166,43 @@
             $("#categoryName").val(node.name);
             $("#modal-default").modal("hide");
         });
+        initWangEditor();
     });
-    var myDropzone = new Dropzone("#dropz", {
-        url: "/upload",
-        method: "post",
-        dictDefaultMessage: '拖动文件至此或者点击上传', // 设置默认的提示语句
-        paramName: "dropFile", // 传到后台的参数名称
-        init: function () {
+
+    /**
+     * 初始化富文本编辑器
+     */
+    function initWangEditor(){
+        var E = window.wangEditor;
+        var editor = new E('#editor');
+        // 配置服务器端地址
+        editor.customConfig.uploadImgServer = '/upload';
+        editor.customConfig.uploadFileName = 'editorFile';
+        editor.create();
+        $("#btnSubmit").bind("click", function () {
+            var contentHtml = editor.txt.html();
+            $("#content").val(contentHtml);
+        });
+    };
+    App.initDropzone({
+        id :"#dropz",
+        url :"/upload",
+        init:function(){
             this.on("success", function (file, data) {
-                // 上传成功触发的事件
                 $("#pic").val(data.fileName);
             });
         }
     });
+    App.initDropzone({
+        id :"#dropz2",
+        url :"/upload",
+        init:function(){
+            this.on("success", function (file, data) {
+                $("#pic2").val(data.fileName);
+            });
+        }
+    });
+
 </script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.funtl.my.shop.web.admin.dao;
 
+import com.funtl.my.shop.commons.persistence.BaseDao;
 import com.funtl.my.shop.domain.TbContent;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +15,7 @@ import java.util.Map;
  * @Version 1.0
  **/
 @Repository
-public interface TbContentDao {
+public interface TbContentDao extends BaseDao<TbContent> {
 
     /**
      * 查询TbContent表全部信息

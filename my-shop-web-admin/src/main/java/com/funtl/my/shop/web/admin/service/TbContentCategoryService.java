@@ -1,5 +1,6 @@
 package com.funtl.my.shop.web.admin.service;
 
+import com.funtl.my.shop.commons.dto.BaseResult;
 import com.funtl.my.shop.domain.TbContent;
 import com.funtl.my.shop.domain.TbContentCategory;
 
@@ -16,4 +17,6 @@ public interface TbContentCategoryService {
     List<TbContentCategory> selectByPid(Long pid);
 
     TbContentCategory getById(Long id);
+
+    BaseResult save(TbContentCategory tbContentCategory);
 }

@@ -37,8 +37,8 @@ public class TbUserServiceImpl implements TbUserService {
 
 
     @Override
-    public TbUser login(String emai, String password) {
-        TbUser tbUser = tbUserDao.getByEmail(emai);
+    public TbUser login(String email, String password) {
+        TbUser tbUser = tbUserDao.getByEmail(email);
         if (tbUser != null) {
             //判断加密后的密码和数据库中存放的密码是否匹配，匹配则表示允许登录
             String md5Password = DigestUtils.md5DigestAsHex(password.getBytes());

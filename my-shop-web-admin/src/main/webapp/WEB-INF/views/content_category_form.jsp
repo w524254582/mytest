@@ -52,7 +52,7 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form:form id="inputForm" cssClass="form-horizontal" action="/content/save" method="post"
+                        <form:form id="inputForm" cssClass="form-horizontal" action="/content/category/save" method="post"
                                    commandName="tbContentCategory">
                             <form:hidden path="id"/>
                             <div class="box-body">
@@ -61,7 +61,7 @@
                                     <div class="col-sm-10">
                                         <form:hidden path="parentId"/>
                                         <input id="parentName" class="form-control required" placeholder="请选择"
-                                               readonly="true" data-toggle="modal" data-target="#modal-default"/>
+                                               readonly="true" data-toggle="modal" data-target="#modal-default" value="${tbContentCategory.name}"/>
                                     </div>
                                 </div>
                                 <div class="form-group">

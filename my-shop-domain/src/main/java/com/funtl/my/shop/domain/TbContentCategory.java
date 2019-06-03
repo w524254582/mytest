@@ -20,7 +20,6 @@ public class TbContentCategory extends BaseEntity {
     private Long parentId;
     @NotNull
     private String name;
-    @NotNull
     private Integer statuc;
     @NotNull
     private Integer sortOrder;

@@ -73,7 +73,7 @@
                                         <td>${tbContentCategory.name}</td>
                                         <td>${tbContentCategory.sortOrder}</td>
                                         <td>
-                                            <a href="#" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit">编辑</i></a>
+                                            <a href="/content/category/form?id=${tbContentCategory.id}" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit">编辑</i></a>
                                             <button href="#" type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o">删除</i></button>
                                             <a href="#" type="button" class="btn btn-sm btn-default"><i class="fa fa-plus">新增下级菜单</i></a>
                                         </td>

@@ -13,10 +13,15 @@ public interface TbContentCategoryDao {
 
     /**
      * 根据父级节点ID 查询所有子级节点
+     *
      * @param pid
      * @return
      */
     List<TbContentCategory> selectByPid(Long pid);
 
     TbContentCategory getById(Long id);
+
+    void update(TbContentCategory tbContentCategory);
+
+    void insert(TbContentCategory tbContentCategory);
 }

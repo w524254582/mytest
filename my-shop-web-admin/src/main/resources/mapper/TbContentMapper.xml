@@ -13,13 +13,21 @@
         a.pic2,
         a.content,
         a.created,
-        a.updated
+        a.updated,
+        b.id AS "tbContentCategory.id",
+        b.name AS "tbContentCategory.name"
+    </sql>
+    <sql id="tbContentJoins">
+        LEFT JOIN tb_content_category AS b ON a.category_id = b.id
     </sql>
     <!-- 若字段与属性不匹配，则必须在字段查找时加上别名-->
 
     <select id="selectAll" resultType="TbContent">
         SELECT
         <include refid="tbContentColumns"/>
+        FROM
+        tb_content AS a
+        <include refid="tbContentJoins"/>
         FROM
         tb_content AS a
     </select>
@@ -39,7 +47,7 @@
         )
         VALUES
           (
-             #{categoryId},
+             #{tbContentCategory.id},
              #{title},
              #{subTitle},
              #{titleDesc},
@@ -61,6 +69,7 @@
         <include refid="tbContentColumns"/>
         FROM
         tb_content AS a
+        <include refid="tbContentJoins"/>
         WHERE
         a.id=#{id}
     </select>
@@ -69,7 +78,7 @@
         UPDATE
             tb_content
         SET
-            category_id = #{categoryId},
+            category_id = #{tbContentCategory.id},
             title = #{title},
             sub_title = #{subTitle},
             title_desc = #{titleDesc},
@@ -97,6 +106,7 @@
         <include refid="tbContentColumns"/>
         FROM
         tb_content AS a
+        <include refid="tbContentJoins"/>
         <where>
             <if test="TbContent.title!=null and TbContent.title!=''">
                 AND a.title LIKE CONCAT('%',#{TbContent.title},'%')

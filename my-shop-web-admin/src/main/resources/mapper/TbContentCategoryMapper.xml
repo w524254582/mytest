@@ -3,35 +3,39 @@
 <mapper namespace="com.funtl.my.shop.web.admin.dao.TbContentCategoryDao">
     <!-- 片段-->
     <sql id="tbContentCategoryColumns">
-        a.id,
-        a.parent_id AS parentId,
-        a.name,
-        a.status,
-        a.sort_order AS sortOrder,
-        a.is_parent AS isParent,
-        a.created,
-        a.updated
+        b1.id,
+        b1.parent_id AS parentId,
+        b1.name,
+        b1.status,
+        b1.sort_order AS sortOrder,
+        b1.is_parent AS isParent,
+        b1.created,
+        b1.updated
+    </sql>
+    <sql id="tbContentCategoryJoins">
+          LEFT JOIN tb_content_category AS b2
+            ON b2.parent_id = b1.id
     </sql>
 
     <!-- 若字段与属性不匹配，则必须在字段查找时加上别名-->
     <select id="selectAll" resultType="TbContentCategory">
         SELECT
-            <include refid="tbContentCategoryColumns"/>
+        <include refid="tbContentCategoryColumns"/>
         FROM
-            tb_content_category  AS a
+        tb_content_category AS b1
         ORDER BY
-            a.parent_id ASC,
-            a.sort_order ASC,
-            a.is_parent DESC
+        b1.parent_id ASC,
+        b1.sort_order ASC,
+        b1.is_parent DESC
     </select>
 
     <select id="selectByPid" resultType="TbContentCategory">
         SELECT
         <include refid="tbContentCategoryColumns"/>
         FROM
-        tb_content_category AS a
+        tb_content_category AS b1
         WHERE
-        a.parent_id = #{parentId}
+        b1.parent_id = #{parentId}
     </select>
 
 
@@ -39,11 +43,46 @@
         SELECT
         <include refid="tbContentCategoryColumns"/>
         FROM
-        tb_content_category AS a
+        tb_content_category AS b1
         WHERE
-        a.id=#{id}
+        b1.id=#{id}
     </select>
 
+    <update id="update">
+        UPDATE
+            tb_content_category
+        SET
+              parent_id = #{parentId},
+              name= #{name},
+              sort_order = #{sortOrder},
+              created = #{created},
+              updated = #{updated}
+        WHERE
+            id = #{id}
+    </update>
+    <insert id="insert">
+        INSERT INTO `tb_content_category` (
+            `id`,
+            `parent_id`,
+            `name`,
+            `status`,
+            `sort_order`,
+            `is_parent`,
+            `created`,
+            `updated`
+         )
+    VALUES
+        (
+            #{id},
+            #{parentId},
+            #{name},
+            #{status},
+            #{sortOrder},
+            #{isParent},
+            #{created},
+            #{updated}
+        ) ;
+    </insert>
 
 
 </mapper>

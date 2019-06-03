@@ -27,16 +27,19 @@ public class UploadController {
     /**
      * 文件上传
      *
-     * @param dropFile
+     * @param dropFile   dropZone
+     * @param editorFile wangEditor
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "upload", method = RequestMethod.POST)
-    public Map<String, Object> upload(MultipartFile dropFile, HttpServletRequest request) {
+    @RequestMapping(value = "upload", method = {RequestMethod.POST, RequestMethod.GET})
+    public Map<String, Object> upload(MultipartFile dropFile, MultipartFile editorFile, HttpServletRequest request) {
 
         Map<String, Object> result = new HashMap<>();
+        //前端上传的文件
+        MultipartFile myFile = dropFile == null ? editorFile : dropFile;
         // 获取上传的原始文件名
-        String fileName = dropFile.getOriginalFilename();
+        String fileName = myFile.getOriginalFilename();
         // 设置文件上传路径
         String filePath = request.getSession().getServletContext().getRealPath(UPLOAD_PATH);
         System.out.println(filePath);
@@ -55,11 +58,24 @@ public class UploadController {
 
         try {
             // 写入文件
-            dropFile.transferTo(file);
+            myFile.transferTo(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        result.put("fileName", UPLOAD_PATH+file.getName());
+        //dropZone上传
+        if (dropFile != null) {
+            result.put("fileName", UPLOAD_PATH + file.getName());
+        }else {
+            //wangEditor上传
+            /**
+             * scheme:服务端提供的协议 Http/https
+             * serverName：服务器名称 localhost或者ip 或 域名
+             * serverPort:服务器端口
+             */
+            String serverPath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+            result.put("errno", 0);
+            result.put("data", new String[]{serverPath + UPLOAD_PATH + file.getName()});
+        }
         return result;
     }
 }

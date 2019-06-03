@@ -1,5 +1,6 @@
 package com.funtl.my.shop.web.admin.web.controller;
 
+import com.funtl.my.shop.commons.dto.BaseResult;
 import com.funtl.my.shop.domain.TbContent;
 import com.funtl.my.shop.domain.TbContentCategory;
 import com.funtl.my.shop.web.admin.service.TbContentCategoryService;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,6 +96,20 @@ public class ContentCategoryController {
             id = 0L;
         }
         return tbContentCategoryService.selectByPid(id);
+    }
+
+    @RequestMapping(value = "save", method = RequestMethod.POST)
+    public String save(TbContentCategory tbContentCategory, RedirectAttributes redirectAttributes, Model model) {
+        BaseResult baseResult = tbContentCategoryService.save(tbContentCategory);
+
+        //保存成功
+        if (baseResult.getStatus() == BaseResult.STATUS_SUCCESS) {
+            redirectAttributes.addFlashAttribute("baseResult", baseResult);
+            return "redirect:/content/category/list";
+        } else {//保存失败
+            model.addAttribute("baseResult", baseResult);
+            return "content_category_form";
+        }
     }
 
 }

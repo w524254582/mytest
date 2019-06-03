@@ -25,7 +25,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                内容管理 | ${tbContent.id==null?"新增":"编辑"}
+                内容管理 | ${tbContentCategory.id==null?"新增":"编辑"}
                 <small></small>
             </h1>
             <ol class="breadcrumb">
@@ -57,11 +57,11 @@
                             <form:hidden path="id"/>
                             <div class="box-body">
                                 <div class="form-group ">
-                                    <label for="parentId" class="col-sm-2 control-label">父级类目</label>
+                                    <label for="parent.id" class="col-sm-2 control-label">父级类目</label>
                                     <div class="col-sm-10">
-                                        <form:hidden path="parentId"/>
+                                        <form:hidden path="parent.id" id="parentId" />
                                         <input id="parentName" class="form-control required" placeholder="请选择"
-                                               readonly="true" data-toggle="modal" data-target="#modal-default" value="${tbContentCategory.name}"/>
+                                               readonly="true" data-toggle="modal" data-target="#modal-default" value="${tbContentCategory.parent.name}"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -109,7 +109,6 @@
     $(function () {
         App.initZTree("/content/category/tree/data",["id"],function (nodes) {
             var node = nodes[0];
-
             $("#parentId").val(node.id);
             $("#parentName").val(node.name);
             $("#modal-default").modal("hide");

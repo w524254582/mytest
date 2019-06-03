@@ -10,11 +10,13 @@
         b1.sort_order AS sortOrder,
         b1.is_parent AS isParent,
         b1.created,
-        b1.updated
+        b1.updated,
+        IFNULL(b2.id,'0') AS "parent.id",
+        IFNULL(b2.name,'/') AS "parent.name"
     </sql>
     <sql id="tbContentCategoryJoins">
           LEFT JOIN tb_content_category AS b2
-            ON b2.parent_id = b1.id
+            ON b1.parent_id = b2.id
     </sql>
 
     <!-- 若字段与属性不匹配，则必须在字段查找时加上别名-->
@@ -23,6 +25,7 @@
         <include refid="tbContentCategoryColumns"/>
         FROM
         tb_content_category AS b1
+        <include refid="tbContentCategoryJoins"/>
         ORDER BY
         b1.parent_id ASC,
         b1.sort_order ASC,
@@ -34,6 +37,7 @@
         <include refid="tbContentCategoryColumns"/>
         FROM
         tb_content_category AS b1
+        <include refid="tbContentCategoryJoins"/>
         WHERE
         b1.parent_id = #{parentId}
     </select>
@@ -44,6 +48,7 @@
         <include refid="tbContentCategoryColumns"/>
         FROM
         tb_content_category AS b1
+        <include refid="tbContentCategoryJoins"/>
         WHERE
         b1.id=#{id}
     </select>
@@ -52,17 +57,19 @@
         UPDATE
             tb_content_category
         SET
-              parent_id = #{parentId},
+              parent_id = #{parent.id},
               name= #{name},
+              status = #{status},
+              is_parent = #{isParent},
               sort_order = #{sortOrder},
               created = #{created},
               updated = #{updated}
         WHERE
             id = #{id}
     </update>
+
     <insert id="insert">
         INSERT INTO `tb_content_category` (
-            `id`,
             `parent_id`,
             `name`,
             `status`,
@@ -73,8 +80,7 @@
          )
     VALUES
         (
-            #{id},
-            #{parentId},
+            #{parent.id},
             #{name},
             #{status},
             #{sortOrder},

@@ -55,7 +55,7 @@ public class ContentCategoryController {
     }
 
     @RequestMapping(value = "form", method = RequestMethod.GET)
-    public String form(Model model) {
+    public String form(TbContentCategory tbContentCategory) {
         return "content_category_form";
     }
 
@@ -69,13 +69,13 @@ public class ContentCategoryController {
     private void sortList(List<TbContentCategory> sourceList, List<TbContentCategory> targetList, Long parentId) {
         for (TbContentCategory tbContentCategory : sourceList) {
             //如果传过来的parentId和 原集合中的这个parentId相同就在目标集合里加入这个对象。
-            if (tbContentCategory.getParentId().equals(parentId)) {
+            if (tbContentCategory.getParent().getId().equals(parentId)) {
                 targetList.add(tbContentCategory);
 
                 //判断有没有子节点，如果有 则继续追加
                 if (tbContentCategory.getIsParent()) {//是一个父类
                     for (TbContentCategory contentCategory : sourceList) {
-                        if (contentCategory.getParentId().equals(tbContentCategory.getId())) {
+                        if (contentCategory.getParent().getId().equals(tbContentCategory.getId())) {
                             sortList(sourceList, targetList, tbContentCategory.getId());//递归
                             break;
                         }
@@ -100,6 +100,7 @@ public class ContentCategoryController {
 
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(TbContentCategory tbContentCategory, RedirectAttributes redirectAttributes, Model model) {
+
         BaseResult baseResult = tbContentCategoryService.save(tbContentCategory);
 
         //保存成功

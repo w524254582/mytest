@@ -3,6 +3,7 @@ package com.funtl.my.shop.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.funtl.my.shop.commons.persistence.BaseEntity;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotNull;
 
@@ -16,13 +17,15 @@ import javax.validation.constraints.NotNull;
  **/
 @Data
 public class TbContentCategory extends BaseEntity {
-    @NotNull
-    private Long parentId;
-    @NotNull
+    @Length(min = 1,max = 20,message = "分类名称必须介于1-20位之间")
     private String name;
-    private Integer statuc;
-    @NotNull
+
+    private Integer status;
+    @NotNull(message = "排序不能为空")
     private Integer sortOrder;
     @JsonProperty(value = "isParent")
     private Boolean isParent;
+
+    private TbContentCategory parent;
+
 }

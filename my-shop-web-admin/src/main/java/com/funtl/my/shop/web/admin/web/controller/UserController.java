@@ -3,6 +3,7 @@ package com.funtl.my.shop.web.admin.web.controller;
 import com.funtl.my.shop.commons.dto.BaseResult;
 import com.funtl.my.shop.commons.dto.PageInfo;
 import com.funtl.my.shop.domain.TbUser;
+import com.funtl.my.shop.web.admin.abstracts.AbstractBaseController;
 import com.funtl.my.shop.web.admin.service.TbUserService;
 
 import org.apache.commons.lang3.StringUtils;
@@ -29,7 +30,7 @@ import javax.servlet.http.HttpServletRequest;
  **/
 @Controller
 @RequestMapping(value = "user")
-public class UserController {
+public class UserController extends AbstractBaseController<TbUser,TbUserService> {
     @Autowired
     private TbUserService tbUserService;
 

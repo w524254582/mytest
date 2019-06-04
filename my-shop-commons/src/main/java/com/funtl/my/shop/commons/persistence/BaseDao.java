@@ -13,7 +13,7 @@ import java.util.Map;
  **/
 public interface BaseDao<T extends BaseEntity> {
     /**
-     * 查询TbContent表全部信息
+     * 查询全部信息
      * @return
      */
     List<T> selectAll();

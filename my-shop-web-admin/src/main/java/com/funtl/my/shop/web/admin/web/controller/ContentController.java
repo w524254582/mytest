@@ -1,8 +1,8 @@
 package com.funtl.my.shop.web.admin.web.controller;
 
 import com.funtl.my.shop.commons.dto.BaseResult;
-import com.funtl.my.shop.commons.dto.PageInfo;
 import com.funtl.my.shop.domain.TbContent;
+import com.funtl.my.shop.web.admin.abstracts.AbstractBaseController;
 import com.funtl.my.shop.web.admin.service.TbContentService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.support.WebContentGenerator;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * @ClassName ContentController
@@ -27,7 +23,7 @@ import java.util.List;
  **/
 @Controller
 @RequestMapping(value = "content")
-public class ContentController {
+public class ContentController extends AbstractBaseController<TbContent,TbContentService> {
     @Autowired
     private TbContentService tbContentService;
 
@@ -49,8 +45,13 @@ public class ContentController {
         return "content_list";
     }
 
+    @Override
+    public String detail() {
+        return null;
+    }
+
     @RequestMapping(value = "form", method = RequestMethod.GET)
-    public String form(Model model) {
+    public String form() {
         return "content_form";
     }
 
@@ -68,8 +69,8 @@ public class ContentController {
         }
     }
 
-    @RequestMapping(value = "delete", method = RequestMethod.POST)
     @ResponseBody
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
     public BaseResult delete(String ids) {
         BaseResult baseResult=null;
         if (StringUtils.isNotBlank(ids)) {
@@ -82,26 +83,7 @@ public class ContentController {
         return baseResult;
     }
 
-    /**
-     * 分页查询
-     * @param request
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "page",method = RequestMethod.GET)
-    public PageInfo<TbContent> page(HttpServletRequest request, TbContent tbContent) {
-        String strDraw = request.getParameter("draw");
-        String strStart = request.getParameter("start");
-        String strLength = request.getParameter("length");
 
-        int draw = strDraw == null ? 0 : Integer.parseInt(strDraw);
-        int start = strStart == null ? 0 : Integer.parseInt(strStart);
-        int length = strLength == null ? 10 : Integer.parseInt(strLength);
-
-        //封装datatable需要的结果
-        PageInfo<TbContent> pageInfo = tbContentService.page(draw, start, length,tbContent);
-        return pageInfo;
-    }
     @RequestMapping(value = "detail",method = RequestMethod.GET)
     public String detail(TbContent tbContent) {
         return "content_detail";

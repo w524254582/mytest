@@ -74,7 +74,7 @@
                                         <td>${tbContentCategory.sortOrder}</td>
                                         <td>
                                             <a href="/content/category/form?id=${tbContentCategory.id}" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit">编辑</i></a>
-                                            <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o">删除</i></button>
+                                            <button type="button" class="btn btn-sm btn-danger" onclick="App.deleteSingle('/content/category/delete','${tbContentCategory.id}','警告，该删除操作会将包括选中类目在内的全部子类目及类目的内容一并删除，请谨慎操作！您还确定继续吗？')"><i class="fa fa-trash-o">删除</i></button>
                                             <a href="/content/category/form?parent.id=${tbContentCategory.id}&parent.name=${tbContentCategory.name}" type="button" class="btn btn-sm btn-default"><i class="fa fa-plus">新增下级菜单</i></a>
                                         </td>
                                     </tr>

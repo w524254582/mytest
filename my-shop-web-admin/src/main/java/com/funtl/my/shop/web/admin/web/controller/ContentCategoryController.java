@@ -1,10 +1,9 @@
 package com.funtl.my.shop.web.admin.web.controller;
 
 import com.funtl.my.shop.commons.dto.BaseResult;
-import com.funtl.my.shop.domain.TbContent;
 import com.funtl.my.shop.domain.TbContentCategory;
+import com.funtl.my.shop.web.admin.abstracts.AbstractBaseTreeController;
 import com.funtl.my.shop.web.admin.service.TbContentCategoryService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,28 +24,25 @@ import java.util.List;
  **/
 @Controller
 @RequestMapping(value = "content/category")
-public class ContentCategoryController {
-
-    @Autowired
-    private TbContentCategoryService tbContentCategoryService;
+public class ContentCategoryController extends AbstractBaseTreeController<TbContentCategory, TbContentCategoryService> {
 
     @ModelAttribute
     public TbContentCategory getTbContentCategory(Long id) {
         TbContentCategory tbContentCategory = null;
         //id不为空，则从数据库获取
         if (id != null) {
-            tbContentCategory = tbContentCategoryService.getById(id);
+            tbContentCategory = service.getById(id);
         } else {
             tbContentCategory = new TbContentCategory();
         }
         return tbContentCategory;
     }
 
-
+    @Override
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String list(Model model) {
         List<TbContentCategory> targetList = new ArrayList<>();
-        List<TbContentCategory> sourceList = tbContentCategoryService.selectAll();
+        List<TbContentCategory> sourceList = service.selectAll();
         //排序
         sortList(sourceList, targetList, 0L);
 
@@ -54,54 +50,17 @@ public class ContentCategoryController {
         return "content_category_list";
     }
 
+    @Override
     @RequestMapping(value = "form", method = RequestMethod.GET)
     public String form(TbContentCategory tbContentCategory) {
         return "content_category_form";
     }
 
-    /**
-     * 排序
-     *
-     * @param sourceList 数据源集合
-     * @param targetList 排序后的集合
-     * @param parentId   父节点的ID
-     */
-    private void sortList(List<TbContentCategory> sourceList, List<TbContentCategory> targetList, Long parentId) {
-        for (TbContentCategory tbContentCategory : sourceList) {
-            //如果传过来的parentId和 原集合中的这个parentId相同就在目标集合里加入这个对象。
-            if (tbContentCategory.getParent().getId().equals(parentId)) {
-                targetList.add(tbContentCategory);
-
-                //判断有没有子节点，如果有 则继续追加
-                if (tbContentCategory.getIsParent()) {//是一个父类
-                    for (TbContentCategory contentCategory : sourceList) {
-                        if (contentCategory.getParent().getId().equals(tbContentCategory.getId())) {
-                            sortList(sourceList, targetList, tbContentCategory.getId());//递归
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /**
-     * 树形结构
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "tree/data", method = {RequestMethod.GET,RequestMethod.POST})
-    public List<TbContentCategory> treeData(Long id) {
-        if (id == null) {
-            id = 0L;
-        }
-        return tbContentCategoryService.selectByPid(id);
-    }
-
+    @Override
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(TbContentCategory tbContentCategory, RedirectAttributes redirectAttributes, Model model) {
 
-        BaseResult baseResult = tbContentCategoryService.save(tbContentCategory);
+        BaseResult baseResult = service.save(tbContentCategory);
 
         //保存成功
         if (baseResult.getStatus() == BaseResult.STATUS_SUCCESS) {
@@ -111,6 +70,16 @@ public class ContentCategoryController {
             model.addAttribute("baseResult", baseResult);
             return "content_category_form";
         }
+    }
+
+    @Override
+    @ResponseBody
+    @RequestMapping(value = "tree/data", method = {RequestMethod.GET, RequestMethod.POST})
+    public List<TbContentCategory> treeData(Long id) {
+        if (id == null) {
+            id = 0L;
+        }
+        return service.selectByPid(id);
     }
 
 }

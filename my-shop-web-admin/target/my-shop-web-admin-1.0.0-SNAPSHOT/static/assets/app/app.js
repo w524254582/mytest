@@ -55,6 +55,28 @@ var App = function () {
         });
 
     };
+    /**
+     * 删除单笔纪录
+     * @param url 删除链接
+     * @param id 删除数据的ID
+     * @param msg
+     */
+    var handlerDeleteSingle = function (url, id, msg) {
+        //可选参数
+        if (!msg) msg = null;
+
+        //将ID放入数组中，以便和批量删除通用
+        _idArray = new Array();
+        _idArray.push(id);
+
+        $("#modal-message").html(msg == null ? "您确定删除数据项吗？" : msg);
+        $("#modal-default").modal("show");
+        //绑定删除事件
+        $("#btnModalOk").bind("click", function () {
+            handlerDeleteData(url);
+        });
+    };
+
 
     var handlerDeleteMulti = function (url) {
         _idArray = new Array();
@@ -76,48 +98,48 @@ var App = function () {
         $("#modal-default").modal("show");
         //如果用户选择了数据项则调用删除方法
         $("#btnModalOk").bind("click", function () {
-            del();
+            handlerDeleteData(url);
         });
-
-        /**
-         * 当前私有函数的私有函数 删除数据
-         */
-        function del() {
-            $("#modal-default").modal("hide");
-            //如果没有选择数据项，则关闭模态框
-            if (_idArray.length === 0) {
-                //...
-            } else {
-                setTimeout(function () {
-                    //否则执行删除操作
-                    $.ajax({
-                        "url": url,
-                        "type": "POST",
-                        "data": {"ids": _idArray.toString()},
-                        "dataType": "JSON",
-                        //请求成功后，无论成功还是失败都需要弹出模态框进行提示，所以需要先解绑原来的click事件
-                        "success": function (data) {
-                            $("#btnModalOk").unbind("click");
-                            //删除成功
-                            if (data.status === 200) {
-                                //刷新页面
-                                $("#btnModalOk").bind("click", function () {
-                                    window.location.reload();
-                                });
-                            } else {
-                                //确定按钮的事件改为隐藏模态框
-                                $("#btnModalOk").bind("click", function () {
-                                    $("modal-default").modal("hide");
-                                });
-                            }
-                            //无论如何都要提示信息，所以模态框是必须调用的
-                            $("#modal-message").html(data.message);
-                            $("#modal-default").modal("show");
+    };
+    /**
+     * AJAX异步删除
+     * @param url
+     */
+    var handlerDeleteData = function (url) {
+        $("#modal-default").modal("hide");
+        //如果没有选择数据项，则关闭模态框
+        if (_idArray.length === 0) {
+            //...
+        } else {
+            setTimeout(function () {
+                //否则执行删除操作
+                $.ajax({
+                    "url": url,
+                    "type": "POST",
+                    "data": {"ids": _idArray.toString()},
+                    "dataType": "JSON",
+                    //请求成功后，无论成功还是失败都需要弹出模态框进行提示，所以需要先解绑原来的click事件
+                    "success": function (data) {
+                        $("#btnModalOk").unbind("click");
+                        //删除成功
+                        if (data.status === 200) {
+                            //刷新页面
+                            $("#btnModalOk").bind("click", function () {
+                                window.location.reload();
+                            });
+                        } else {
+                            //确定按钮的事件改为隐藏模态框
+                            $("#btnModalOk").bind("click", function () {
+                                $("modal-default").modal("hide");
+                            });
                         }
-                    });
-                }, 500);
-            }
-        };
+                        //无论如何都要提示信息，所以模态框是必须调用的
+                        $("#modal-message").html(data.message);
+                        $("#modal-default").modal("show");
+                    }
+                });
+            }, 500);
+        }
     };
 
     /**
@@ -219,10 +241,9 @@ var App = function () {
     var handlerInitDropzone = function (opts) {
         Dropzone.autoDiscover = false;
         var options = $.extend(defaultDropzoneOpts, opts);
-        new Dropzone(options.id,options);
+        new Dropzone(options.id, options);
 
     };
-
     //暴露这个方法
     return {
         //初始化
@@ -231,6 +252,9 @@ var App = function () {
             handlerInitCheckbox();
             handlerCheckboxAll();
         },
+        deleteSingle: function (url, id, msg) {
+            handlerDeleteSingle(url, id, msg);
+        },
         //批量删除
         deleteMulti: function (url) {
             handlerDeleteMulti(url);
@@ -238,7 +262,6 @@ var App = function () {
         //初始化datatable
         initDataTables: function (url, columns) {
             return handlerInitDataTable(url, columns);
-
         },
         //显示详情
         showDetail: function (url) {
@@ -250,9 +273,9 @@ var App = function () {
         initDropzone: function (opts) {
             handlerInitDropzone(opts);
         }
-
-    };
+    }
 }();
+
 
 $(document).ready(function () {
     App.init();

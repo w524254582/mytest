@@ -4,6 +4,7 @@ import com.funtl.my.shop.commons.dto.BaseResult;
 import com.funtl.my.shop.domain.TbContentCategory;
 import com.funtl.my.shop.web.admin.abstracts.AbstractBaseTreeController;
 import com.funtl.my.shop.web.admin.service.TbContentCategoryService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -70,6 +71,28 @@ public class ContentCategoryController extends AbstractBaseTreeController<TbCont
             model.addAttribute("baseResult", baseResult);
             return "content_category_form";
         }
+    }
+
+    /**
+     * 删除
+     * @param ids
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    public BaseResult delete(String ids){
+        BaseResult baseResult=null;
+        if (StringUtils.isNotBlank(ids)) {
+            String[] idArray = ids.split(",");
+            for (String strId : idArray) {
+                Long id = strId == null ? 0 : Long.parseLong(strId);
+                service.delete(id);
+            }
+            baseResult = BaseResult.success("删除成功");
+        } else {
+            baseResult = BaseResult.fail("删除失败");
+        }
+        return baseResult;
     }
 
     @Override

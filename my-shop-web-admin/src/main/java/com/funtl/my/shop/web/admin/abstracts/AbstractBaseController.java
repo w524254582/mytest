@@ -4,6 +4,7 @@ import com.funtl.my.shop.commons.dto.BaseResult;
 import com.funtl.my.shop.commons.dto.PageInfo;
 import com.funtl.my.shop.commons.persistence.BaseEntity;
 import com.funtl.my.shop.commons.persistence.BaseService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,7 +55,19 @@ public abstract class AbstractBaseController<T extends BaseEntity, S extends Bas
      * @param ids
      * @return
      */
-    public abstract BaseResult delete(String ids);
+    @ResponseBody
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    public BaseResult delete(String ids){
+        BaseResult baseResult=null;
+        if (StringUtils.isNotBlank(ids)) {
+            String[] idArray = ids.split(",");
+            service.deleteMulti(idArray);
+            baseResult = BaseResult.success("删除成功");
+        } else {
+            baseResult = BaseResult.fail("删除失败");
+        }
+        return baseResult;
+    }
 
     /**
      * 分页查询

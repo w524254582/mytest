@@ -90,5 +90,10 @@
         ) ;
     </insert>
 
+    <delete id="delete">
+        DELETE FROM tb_content_category
+        WHERE id = #{id}
+    </delete>
+
 
 </mapper>

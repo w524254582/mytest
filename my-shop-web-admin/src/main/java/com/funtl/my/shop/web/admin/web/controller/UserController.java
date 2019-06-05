@@ -4,13 +4,11 @@ import com.funtl.my.shop.commons.dto.BaseResult;
 import com.funtl.my.shop.domain.TbUser;
 import com.funtl.my.shop.web.admin.abstracts.AbstractBaseController;
 import com.funtl.my.shop.web.admin.service.TbUserService;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
@@ -72,9 +70,9 @@ public class UserController extends AbstractBaseController<TbUser, TbUserService
         }
     }
 
-    @Override
-    @RequestMapping(value = "delete", method = RequestMethod.POST)
+/*    @Override
     @ResponseBody
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
     public BaseResult delete(String ids) {
         BaseResult baseResult = null;
         if (StringUtils.isNotBlank(ids)) {
@@ -85,7 +83,7 @@ public class UserController extends AbstractBaseController<TbUser, TbUserService
             baseResult = BaseResult.fail("删除失败");
         }
         return baseResult;
-    }
+    }*/
 
 
     @Override

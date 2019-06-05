@@ -180,9 +180,10 @@
             {
                 "data": function (row, type, val, meta) {
                     var detailUrl = "/content/detail?id=" + row.id;
+                    var deleteUrl = "/content/delete";
                     return '<button type="button" class="btn btn-sm btn-default" onclick="App.showDetail(\'' + detailUrl + '\');"><i class="fa fa-search">查看</i></button >' +
                         '<a href="/content/form?id=' + row.id + '"type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit">编辑</i></a>' +
-                        '<a href="#" type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash">删除</i></a>';
+                        '<button type="button" class="btn btn-sm btn-danger" onclick="App.deleteSingle(\''+deleteUrl+'\',\''+row.id+'\')"><i class="fa fa-trash">删除</i></button>';
                 }
             }
         ];

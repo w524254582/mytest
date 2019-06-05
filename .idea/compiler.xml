@@ -8,8 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="my-shop-domain" />
         <module name="my-shop-web-admin" />
-        <module name="my-shop-web-ui" />
         <module name="my-shop-web-api" />
+        <module name="my-shop-web-ui" />
         <module name="my-shop-commons" />
       </profile>
     </annotationProcessing>

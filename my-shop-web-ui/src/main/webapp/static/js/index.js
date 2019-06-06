@@ -498,9 +498,3 @@ $(function(){
 
 
 
-
-/***
-*/
-
-var ddd=document.getElementById('d');
-ddd.value='sjhagoha';

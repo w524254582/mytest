@@ -38,7 +38,7 @@ public class TbContentController {
      * @param categoryId
      * @return
      */
-    @RequestMapping(value = "{category_id}", method = RequestMethod.GET)
+    @RequestMapping(value = "ppt/{category_id}", method = RequestMethod.GET)
     public BaseResult findContentByCategoryId(@PathVariable(value = "category_id")  Long categoryId) {
         List<TbContentDTO> tbContentDTOS = null;
         List<TbContent> tbContents = tbContentService.selectByCategoryId(categoryId);

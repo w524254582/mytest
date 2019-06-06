@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.funtl.my.shop.web.api.dao.TbUserDao">
+    <!-- 片段-->
+    <sql id="TbUserColumns">
+        a.id,
+        a.username,
+        a.password,
+        a.phone,
+        a.email,
+        a.created,
+        a.updated
+    </sql>
+    <!-- 若字段与属性不匹配，则必须在字段查找时加上别名-->
+
+    <select id="login" resultType="TbUser">
+        SELECT
+        <include refid="TbUserColumns"/>
+        FROM
+        tb_user AS a
+        WHERE
+        a.username = #{username}
+        OR a.phone = #{username}
+        OR a.email = #{username}
+    </select>
+
+</mapper>

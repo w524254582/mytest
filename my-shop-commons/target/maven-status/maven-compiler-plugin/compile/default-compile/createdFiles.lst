@@ -1,0 +1,14 @@
+com\funtl\my\shop\commons\utils\MapperUtils.class
+com\funtl\my\shop\commons\persistence\BaseDao.class
+com\funtl\my\shop\commons\persistence\BaseEntity.class
+com\funtl\my\shop\commons\dto\BaseResult.class
+com\funtl\my\shop\commons\persistence\BaseTreeDao.class
+com\funtl\my\shop\commons\persistence\BaseTreeService.class
+com\funtl\my\shop\commons\validator\BeanValidator.class
+com\funtl\my\shop\commons\utils\HttpClientUtils.class
+com\funtl\my\shop\commons\utils\RegexpUtils.class
+com\funtl\my\shop\commons\constant\ConstantUtils.class
+com\funtl\my\shop\commons\dto\PageInfo.class
+com\funtl\my\shop\commons\utils\MapperUtils$1.class
+com\funtl\my\shop\commons\persistence\BaseService.class
+com\funtl\my\shop\commons\persistence\BaseTreeEntity.class

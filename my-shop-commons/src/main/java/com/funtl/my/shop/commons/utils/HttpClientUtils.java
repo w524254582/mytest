@@ -36,7 +36,7 @@ public class HttpClientUtils {
      * @return
      */
     public static String doGet(String url) {
-        return createRequestt(url, null, GET);
+        return createRequest(url, null, GET);
     }
 
     /**
@@ -46,7 +46,7 @@ public class HttpClientUtils {
      * @return
      */
     public static String doGet(String url,String cookie) {
-        return createRequestt(url, cookie, GET);
+        return createRequest(url, cookie, GET);
     }
 
     /**
@@ -56,7 +56,7 @@ public class HttpClientUtils {
      * @return
      */
     public static String doPost(String url,BasicNameValuePair... params) {
-        return createRequestt(url, null, POST, params);
+        return createRequest(url, null, POST, params);
     }
 
     /**
@@ -67,7 +67,7 @@ public class HttpClientUtils {
      * @return
      */
     public static String doPost(String url,String cookie,BasicNameValuePair... params) {
-        return createRequestt(url, cookie, POST, params);
+        return createRequest(url, cookie, POST, params);
     }
 
     /**
@@ -78,7 +78,7 @@ public class HttpClientUtils {
      * @param params 请求参数 仅限于post请求用
      * @return
      */
-    private static String createRequestt(String url, String cookie,String requestMethod, BasicNameValuePair... params) {
+    private static String createRequest(String url, String cookie,String requestMethod, BasicNameValuePair... params) {
         String result = null;
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = null;

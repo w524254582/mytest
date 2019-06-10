@@ -18,4 +18,5 @@ public class TbUser implements Serializable {
     private String password;
     private String email;
     private String phone;
+    private String verification;
 }

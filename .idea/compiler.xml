@@ -8,9 +8,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="my-shop-domain" />
         <module name="my-shop-web-admin" />
+        <module name="my-shop-commons" />
         <module name="my-shop-web-api" />
         <module name="my-shop-web-ui" />
-        <module name="my-shop-commons" />
+        <module name="my-shop-external" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -18,6 +19,7 @@
       <module name="my-shop-commons" target="1.8" />
       <module name="my-shop-dependencies" target="1.8" />
       <module name="my-shop-domain" target="1.8" />
+      <module name="my-shop-external" target="1.8" />
       <module name="my-shop-web-admin" target="1.8" />
       <module name="my-shop-web-api" target="1.8" />
       <module name="my-shop-web-ui" target="1.8" />
@@ -29,6 +31,7 @@
       <module name="my-shop-commons" options="" />
       <module name="my-shop-dependencies" options="" />
       <module name="my-shop-domain" options="" />
+      <module name="my-shop-external" options="" />
       <module name="my-shop-web-admin" options="" />
       <module name="my-shop-web-api" options="" />
       <module name="my-shop-web-ui" options="" />

@@ -18,6 +18,13 @@
     <description></description>
 
     <dependencies>
+        <!--Google Code begin-->
+        <dependency>
+            <groupId>com.google.code.kaptcha</groupId>
+            <artifactId>kaptcha</artifactId>
+        </dependency>
+        <!--Google Code end-->
+
         <!-- Apache Http Begin -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -72,6 +79,12 @@
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
         </dependency>
+        <!--commons-email begin-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+        </dependency>
+        <!--commons-email end-->
         <!--Commons end-->
         <!-- Log Begin -->
         <dependency>
